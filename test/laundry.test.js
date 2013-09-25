@@ -49,7 +49,9 @@ test('setup', function (t) {
       socketPath: SOCKET
     });
     t.ok(client);
-    t.end();
+    client.once('connect', function () {
+      t.end();
+    });
   });
 
   server.bind('cn=root', function (req, res, next) {
