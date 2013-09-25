@@ -15,8 +15,6 @@ var BIND_PW = 'secret';
 var SOCKET = '/tmp/.' + uuid();
 
 var SUFFIX = 'dc=test';
-
-var ldap;
 var server;
 
 test('setup', function (t) {
