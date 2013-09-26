@@ -3,14 +3,14 @@
 var Logger = require('bunyan');
 
 var test = require('tap').test;
-var uuid = require('node-uuid');
+var libuuid = require('libuuid');
 
 
 ///--- Globals
 
 var BIND_DN = 'cn=root';
 var BIND_PW = 'secret';
-var SOCKET = '/tmp/.' + uuid();
+var SOCKET = '/tmp/.' + libuuid.create();
 
 var SUFFIX = 'dc=test';
 
@@ -152,7 +152,7 @@ test('setup', function (t) {
 
 
 test('simple bind failure', function (t) {
-    client.bind(BIND_DN, uuid(), function (err, res) {
+    client.bind(BIND_DN, libuuid.create(), function (err, res) {
         t.ok(err);
         t.notOk(res);
 
@@ -232,7 +232,7 @@ test('compare false', function (t) {
 
 
 test('compare bad suffix', function (t) {
-    client.compare('cn=' + uuid(), 'cn', 'foo', function (err,
+    client.compare('cn=' + libuuid.create(), 'cn', 'foo', function (err,
                                                          matched,
                                                          res) {
         t.ok(err);

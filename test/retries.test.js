@@ -3,7 +3,7 @@
 var Logger = require('bunyan');
 
 var test = require('tap').test;
-var uuid = require('node-uuid');
+var libuuid = require('libuuid');
 var util = require('util');
 
 var ldap = require('../lib/index');
@@ -12,7 +12,7 @@ var ldap = require('../lib/index');
 
 var BIND_DN = 'cn=root';
 var BIND_PW = 'secret';
-var SOCKET = '/tmp/.' + uuid();
+var SOCKET = '/tmp/.' + libuuid.create();
 
 var SUFFIX = 'dc=test';
 var server;

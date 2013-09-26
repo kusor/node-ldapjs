@@ -1,15 +1,15 @@
-// Copyright 2011 Mark Cavage, Inc.  All rights reserved.
+// Copyright 2013 Mark Cavage, Inc.  All rights reserved.
 
 var test = require('tap').test;
-var uuid = require('node-uuid');
+var libuuid = require('libuuid');
 
 var ldap = require('../lib/index');
 
 
 ///--- Globals
 
-var SOCKET = '/tmp/.' + uuid();
-var SUFFIX = 'dc=' + uuid();
+var SOCKET = '/tmp/.' + libuuid.create();
+var SUFFIX = 'dc=' + libuuid.create();
 
 var client;
 var server;
@@ -66,7 +66,7 @@ test('setup', function (t) {
         cn: 'Pogo Stick',
         sn: 'Stick',
         givenname: 'ogo',
-        mail: uuid() + '@pogostick.org'
+        mail: libuuid.create() + '@pogostick.org'
       }
     };
 
