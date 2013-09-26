@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // -*- mode: js -*-
-// Copyright 2011 Mark Cavage.  All rights reserved.
+// vim: set filetype=javascript :
+// Copyright 2013 Mark Cavage.  All rights reserved.
 
 var fs = require('fs');
 var path = require('path');
@@ -25,7 +26,6 @@ var opts = {
   'attribute': String,
   'debug': Number,
   'binddn': ldap.DN,
-  'file': String,
   'password': String,
   'url': url,
   'value': String,
@@ -35,7 +35,6 @@ var shortOpts = {
   'a': ['--attribute'],
   'd': ['--debug'],
   'D': ['--binddn'],
-  'f': ['--file'],
   'w': ['--password'],
   'u': ['--url'],
   'v': ['--value']
